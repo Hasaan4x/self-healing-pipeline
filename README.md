@@ -32,11 +32,6 @@ It also includes:
 - **Alerts**: Slack Incoming Webhook + SMTP email  
 - **Scheduler**: cron  
 
-
----
-
-Got it Hasaan — you want the Quickstart section (steps 2–7) in the same beautiful bullet-style markdown as your Features section. Here you go, ready to paste:
-
 ---
 
 ## ⚡ Quickstart
@@ -47,7 +42,7 @@ Got it Hasaan — you want the Quickstart section (steps 2–7) in the same beau
   cd self-healing-pipeline
 
 
-2) Start services
+# Start services
 
 docker compose up -d
 
@@ -58,41 +53,42 @@ Adminer → http://localhost:8080
 
 (host: db, user: hasaan, pass: dev, db: healing)
 
-3) Python environment
+# Python environment
 
 python3.9 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
 
-4) Configure .env
+# Configure .env
 
 cp .env.example .env
-# Edit .env with:
-# DB_URL=postgresql+psycopg2://hasaan:dev@localhost:5432/healing
-# SLACK_WEBHOOK_URL=...
-# SMTP_HOST=smtp.gmail.com
-# SMTP_PORT=587
-# SMTP_USER=your.email@gmail.com
-# SMTP_PASS=app_password
-# ALERT_EMAIL_FROM=your.email@gmail.com
-# ALERT_EMAIL_TO=alerts+pipeline@gmail.com
+ Edit .env with:
+ DB_URL=postgresql+psycopg2://hasaan:dev@localhost:5432/healing
+ SLACK_WEBHOOK_URL=...
+ SMTP_HOST=smtp.gmail.com
+ SMTP_PORT=587
+ SMTP_USER=your.email@gmail.com
+ SMTP_PASS=app_password
+ ALERT_EMAIL_FROM=your.email@gmail.com
+ ALERT_EMAIL_TO=alerts+pipeline@gmail.com
 
 
-5) Initialize schema
+# Initialize schema
 
 psql "postgresql://hasaan:dev@localhost:5432/healing" -f sql/schema.sql
 
 
-6) Run once (with alerts)
+# Run once (with alerts)
 
 python -m app.run_scheduled
 
 
-7) Dashboard
+# Dashboard
 
 python -m streamlit run dashboard/app.py
 
 
 Open → http://localhost:8501
+
 
